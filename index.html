@@ -3,38 +3,38 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>7th Zone</title>
+<title>The Five Borough Illegal Factions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <!-- Supabase Client (deferred) -->
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
-  --bg:#05070f;
-  --bg-secondary:#0a1122;
-  --bg-tertiary:#0f1d33;
-  --accent:#37d2ff;
-  --accent-2:#ffb347;
-  --accent-hover:#5de5ff;
-  --accent-2-hover:#ffc46a;
-  --muted:#c9d6ff;
-  --text:#f6f8ff;
-  --text-secondary:#dce6ff;
-  --glass-border: rgba(85,135,255,.22);
-  --glass-border-red: rgba(85,135,255,.28);
+  --bg:#0a0a0a;
+  --bg-secondary:#0d1117;
+  --bg-tertiary:#161b22;
+  --accent:#1e90ff;
+  --accent-2:#4169e1;
+  --accent-hover:#4682b4;
+  --accent-2-hover:#5a9fd4;
+  --muted:#8b949e;
+  --text:#ffffff;
+  --text-secondary:#c9d1d9;
+  --glass-border: rgba(30,144,255,.15);
+  --glass-border-blue: rgba(65,105,225,.15);
   --maxw:1400px;
-  --kill-glow: 0 10px 32px rgba(55,210,255,0.35);
-  --shadow: 0 12px 40px rgba(0,0,0,.55);
-  --card-bg: linear-gradient(140deg, rgba(18,28,58,.9) 0%, rgba(9,14,26,.92) 55%, rgba(14,22,42,.95) 100%);
+  --kill-glow: 0 8px 32px rgba(30,144,255,0.4);
+  --shadow: 0 4px 16px rgba(0,0,0,.4);
+  --card-bg: linear-gradient(135deg, rgba(22,27,34,.95) 0%, rgba(13,17,23,.95) 100%);
 }
 
 /* base */
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:"Space Grotesk","Rajdhani",sans-serif;background:radial-gradient(circle at 20% 20%, rgba(55,210,255,.08), transparent 28%), radial-gradient(circle at 80% 0%, rgba(255,179,71,.08), transparent 30%), var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+html,body{height:100%;margin:0;font-family:"Rajdhani",sans-serif;background:#0a0a0a;color:var(--text);-webkit-font-smoothing:antialiased;}
 
 /* Performance optimizations */
 * { -webkit-tap-highlight-color: transparent; }
@@ -61,11 +61,8 @@ img { will-change: auto; transform: translateZ(0); }
 #bgDark {
   position:fixed;
   inset:0;
-  background: linear-gradient(180deg, rgba(5,7,15,0.9) 0%, rgba(10,17,34,0.92) 45%, rgba(5,7,15,0.96) 100%);
+  background: linear-gradient(180deg, rgba(10,10,10,0.85), rgba(0,0,0,0.92));
   z-index:1;
-}
-#bgDark.bg-fallback {
-  background: radial-gradient(circle at 20% 20%, rgba(55,210,255,.12), transparent 32%), radial-gradient(circle at 80% 0%, rgba(255,179,71,.12), transparent 34%), linear-gradient(180deg, rgba(5,7,15,0.96) 0%, rgba(10,17,34,0.94) 45%, rgba(5,7,15,0.98) 100%);
 }
 #bgEmblem {
   position:fixed;
@@ -81,15 +78,15 @@ img { will-change: auto; transform: translateZ(0); }
 }
 
 /* container */
-.wrap{ position:relative; z-index:6; width:100%; max-width:var(--maxw); margin:0 auto; padding:22px; }
+.wrap{ position:relative; z-index:6; width:100%; max-width:var(--maxw); margin:0 auto; padding:20px; }
 
 /* main panel - Modern Forum Style */
 .container{ 
   background: var(--card-bg); 
-  border-radius:22px; 
-  padding:34px; 
-  border:1px solid var(--glass-border); 
-  box-shadow:var(--shadow), 0 0 0 1px rgba(255,255,255,.04); 
+  border-radius:20px; 
+  padding:32px; 
+  border:2px solid var(--glass-border); 
+  box-shadow:var(--shadow), 0 0 0 1px rgba(30,144,255,.1); 
   position:relative;
   overflow:hidden;
 }
@@ -99,108 +96,90 @@ img { will-change: auto; transform: translateZ(0); }
   top:0;
   left:0;
   right:0;
-  height:6px;
-  background:linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 70%);
-  box-shadow:0 0 32px rgba(55,210,255,.35);
+  height:4px;
+  background:linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
 }
 
 /* header - Forum Style */
 .header{ 
   display:flex; 
-  align-items:flex-start; 
+  align-items:center; 
   justify-content:space-between; 
   gap:24px; 
   margin-bottom:32px; 
-  padding-bottom:22px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  backdrop-filter: blur(6px);
+  padding-bottom:24px;
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg, var(--accent) 0%, transparent 100%) 1;
 }
-.header-left{ max-width:72%; }
+.header-left{ max-width:70%; }
 .title{ 
   font-size:48px; 
   margin:0; 
   line-height:1.1; 
   font-weight:900; 
-  background:linear-gradient(115deg, var(--accent) 0%, var(--accent-2) 60%, #fff 100%);
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  letter-spacing:-0.8px;
-  text-shadow:0 14px 40px rgba(0,0,0,.55);
+  text-shadow:none;
+  letter-spacing:-1px;
 }
 .subtitle{ 
-  margin-top:10px; 
+  margin-top:12px; 
   color:var(--text-secondary); 
   font-weight:700; 
-  font-size:15px;
-  letter-spacing:1px;
-  text-transform:uppercase;
+  font-size:16px;
+  letter-spacing:0.5px;
 }
 
 /* top navigation - Modern Tabs */
 .topnav{ 
   display:flex; 
-  gap:10px; 
+  gap:6px; 
   margin-top:20px; 
   flex-wrap:wrap; 
   align-items:center; 
-  background:rgba(255,255,255,.03);
-  padding:10px;
-  border-radius:18px;
+  background:rgba(18,18,18,.6);
+  padding:8px;
+  border-radius:16px;
   border:1px solid var(--glass-border);
-  box-shadow:0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
 }
 .topnav .cat{ 
-  padding:12px 20px; 
-  border-radius:14px; 
-  background:linear-gradient(140deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  padding:14px 24px; 
+  border-radius:12px; 
+  background:transparent;
   color:var(--text-secondary); 
-  border:1px solid rgba(255,255,255,.08); 
+  border:none; 
   font-weight:800; 
   cursor:pointer; 
   display:inline-flex; 
   gap:10px; 
   align-items:center; 
-  transition:transform .25s ease, box-shadow .25s ease, color .2s ease, border-color .2s ease, background .2s ease;
+  transition:all .3s;
   text-transform:uppercase;
   font-size:13px;
   letter-spacing:1px;
   position:relative;
-  overflow:hidden;
-}
-.topnav .cat::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg, rgba(55,210,255,.15), rgba(255,179,71,.12));
-  opacity:0;
-  transition:opacity .25s ease;
 }
 .topnav .cat::after{
   content:'';
   position:absolute;
-  bottom:10px;
-  left:14px;
-  right:14px;
+  bottom:0;
+  left:0;
+  width:100%;
   height:3px;
-  border-radius:12px;
   background:linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
   transform:scaleX(0);
-  transform-origin:center;
-  transition:transform .25s ease;
-  box-shadow:0 0 14px rgba(55,210,255,.45);
+  transition:transform .3s;
 }
 .topnav .cat:hover{
   color:var(--text);
-  border-color:rgba(255,255,255,.2);
-  transform:translateY(-2px);
+  background:rgba(255,255,255,.05);
 }
-.topnav .cat:hover::before{ opacity:0.6; }
 .topnav .cat.active{ 
   color:var(--text); 
-  background: linear-gradient(120deg, rgba(55,210,255,.24), rgba(255,179,71,.22)); 
-  box-shadow: 0 12px 28px rgba(55,210,255,.25), inset 0 1px 0 rgba(255,255,255,.25);
-  border-color:rgba(255,255,255,.3);
+  background: linear-gradient(135deg, rgba(30,144,255,.2), rgba(13,17,23,.2)); 
+  box-shadow: inset 0 0 20px rgba(30,144,255,.2); 
 }
 .topnav .cat.active::after{
   transform:scaleX(1);
@@ -208,22 +187,22 @@ img { will-change: auto; transform: translateZ(0); }
 
 /* subtabs - Pill Style */
 .subtabs{ 
-  margin-top:14px; 
+  margin-top:16px; 
   display:flex; 
-  gap:10px; 
+  gap:8px; 
   align-items:center; 
   flex-wrap:wrap; 
 }
 .subtabs .sub{ 
-  padding:10px 18px; 
-  border-radius:14px; 
-  background: rgba(255,255,255,.02); 
-  border:1px solid rgba(255,255,255,.08); 
+  padding:10px 20px; 
+  border-radius:999px; 
+  background: var(--bg-tertiary); 
+  border:2px solid transparent; 
   color:var(--muted); 
   font-weight:800; 
   cursor:pointer; 
-  transition:all .22s ease; 
-  font-size:12px;
+  transition:all .3s; 
+  font-size:13px;
   text-transform:uppercase;
   letter-spacing:1px;
 }
@@ -233,9 +212,9 @@ img { will-change: auto; transform: translateZ(0); }
   transform:translateY(-2px);
 }
 .subtabs .sub.active{ 
-  color:#0b1020; 
-  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%); 
-  box-shadow: 0 10px 24px rgba(55,210,255,.35); 
+  color:#fff; 
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); 
+  box-shadow: 0 4px 16px rgba(30,144,255,.4); 
   border-color:transparent; 
   transform:translateY(-2px); 
 }
@@ -250,32 +229,34 @@ img { will-change: auto; transform: translateZ(0); }
   display:flex; 
   align-items:center; 
   justify-content:center; 
-  border:2px solid rgba(255,255,255,.1); 
-  background: radial-gradient(circle at 30% 30%, rgba(55,210,255,.18), transparent 60%), radial-gradient(circle at 70% 30%, rgba(255,179,71,.18), transparent 60%), var(--card-bg); 
-  box-shadow: 0 10px 28px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06); 
-  transition:all .25s ease;
+  border:3px solid var(--accent); 
+  background: var(--card-bg); 
+  box-shadow: 0 8px 30px rgba(30,144,255,.3), 0 0 0 1px rgba(30,144,255,.2); 
+  transition:all .3s;
   position:relative;
 }
 .logo::before{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(145deg, rgba(55,210,255,.18) 0%, rgba(255,179,71,.14) 100%);
+  background:linear-gradient(135deg, rgba(30,144,255,.1) 0%, rgba(13,17,23,.1) 100%);
   opacity:0;
-  transition:opacity .25s ease;
+  transition:opacity .3s;
 }
 .logo:hover{
-  transform:translateY(-3px) scale(1.03);
-  border-color:rgba(255,255,255,.28);
-  box-shadow: 0 16px 36px rgba(0,0,0,.55), 0 0 30px rgba(55,210,255,.3);
+  transform:scale(1.05) rotate(2deg);
+  border-color:var(--accent-hover);
+  box-shadow: 0 12px 40px rgba(30,144,255,.5);
 }
-.logo:hover::before{ opacity:1; }
+.logo:hover::before{
+  opacity:1;
+}
 .header-logo{ 
   width:90%; 
   height:90%; 
   object-fit:contain; 
   display:block; 
-  filter: drop-shadow(0 6px 16px rgba(55,210,255,.45)); 
+  filter: drop-shadow(0 4px 12px rgba(30,144,255,.4)); 
   position:relative;
   z-index:1;
 }
@@ -287,45 +268,42 @@ img { will-change: auto; transform: translateZ(0); }
   justify-content:space-between; 
   gap:16px; 
   margin-top:24px; 
-  padding:16px 18px;
-  background:linear-gradient(120deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-  border-radius:14px;
+  padding:16px;
+  background:var(--bg-secondary);
+  border-radius:12px;
   border:1px solid var(--glass-border);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 12px 32px rgba(0,0,0,.35);
 }
-.controls .left{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.controls .left{ display:flex; gap:12px; align-items:center; }
 .choose{ color:var(--text-secondary); font-weight:800; margin-right:8px; text-transform:uppercase; font-size:12px; letter-spacing:1px; }
 select{ 
   background:var(--bg-tertiary); 
-  border:1px solid rgba(255,255,255,.18); 
+  border:2px solid var(--glass-border); 
   color:var(--text); 
   padding:10px 16px; 
   border-radius:10px; 
   font-weight:800; 
-  transition:all .22s ease;
+  transition:all .3s;
   font-size:14px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
 }
 select:hover{
   border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(55,210,255,.16);
 }
 select:focus{
   outline:none;
   border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(55,210,255,.22);
+  box-shadow:0 0 0 3px rgba(30,144,255,.2);
 }
 
-.drop-actions{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.drop-actions{ display:flex; gap:12px; align-items:center; }
 .btn{ 
   padding:12px 24px; 
   border-radius:12px; 
   font-weight:900; 
   cursor:pointer; 
-  background: linear-gradient(140deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); 
-  border:1px solid rgba(255,255,255,.12); 
+  background: var(--bg-tertiary); 
+  border:2px solid var(--glass-border); 
   color:var(--text); 
-  transition:transform .2s ease, box-shadow .25s ease, border-color .2s ease, color .2s ease;
+  transition:all .3s;
   text-transform:uppercase;
   font-size:13px;
   letter-spacing:1px;
@@ -335,32 +313,33 @@ select:focus{
 .btn::before{
   content:'';
   position:absolute;
-  top:0;
-  left:-30%;
-  width:30%;
-  height:100%;
-  background:linear-gradient(120deg, rgba(255,255,255,.16), rgba(255,255,255,0));
-  transform:skewX(-18deg);
-  transition:transform .35s ease;
+  top:50%;
+  left:50%;
+  width:0;
+  height:0;
+  background:rgba(255,255,255,.1);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:width .4s, height .4s;
 }
 .btn:hover::before{
-  transform:translateX(260%) skewX(-18deg);
+  width:300px;
+  height:300px;
 }
 .btn:hover{
-  border-color:rgba(255,255,255,.3);
-  box-shadow:0 12px 28px rgba(0,0,0,.45), 0 0 16px rgba(55,210,255,.25);
+  border-color:var(--accent);
+  color:#fff;
   transform:translateY(-2px);
 }
 .btn.drop{ 
-  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%); 
-  box-shadow: 0 12px 28px rgba(55,210,255,.28); 
-  color:#0b1020; 
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); 
+  box-shadow: 0 4px 16px rgba(30,144,255,.4); 
+  color:white; 
   border-color:transparent;
 }
 .btn.drop:hover{
-  background: linear-gradient(120deg, var(--accent-hover), var(--accent-2-hover)); 
-  box-shadow: 0 16px 34px rgba(55,210,255,.35); 
-  color:#0a0e1c;
+  background: linear-gradient(135deg, var(--accent-hover), var(--accent-2-hover)); 
+  box-shadow: 0 6px 24px rgba(30,144,255,.6); 
 }
 
 /* music toggle - Modern Switch */
@@ -370,25 +349,25 @@ select:focus{
   gap:10px; 
   padding:12px 20px; 
   border-radius:12px; 
-  background:linear-gradient(140deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); 
-  border:1px solid rgba(255,255,255,.12); 
-  color:var(--text-secondary); 
+  background:var(--bg-tertiary); 
+  border:2px solid var(--glass-border); 
+  color:var(--muted); 
   font-weight:800; 
   cursor:pointer; 
-  transition:all .2s ease;
+  transition:all .3s;
   text-transform:uppercase;
   font-size:12px;
   letter-spacing:1px;
 }
 .music-toggle:hover{
-  border-color:rgba(255,255,255,.22);
+  border-color:var(--accent);
   transform:translateY(-2px);
 }
 .music-toggle.on{ 
-  color:#0b1020; 
-  background:linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
-  border-color:transparent;
-  box-shadow: 0 10px 24px rgba(55,210,255,.25); 
+  color:var(--accent); 
+  background:rgba(30,144,255,.1);
+  border-color:var(--accent);
+  box-shadow: 0 4px 16px rgba(30,144,255,.3); 
 }
 
 /* grid - Modern Forum Cards Container */
@@ -397,8 +376,8 @@ select:focus{
   border-radius:16px; 
   padding:24px; 
   border:1px solid var(--glass-border); 
-  background: linear-gradient(140deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); 
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 16px 34px rgba(0,0,0,.35); 
+  background: rgba(18,18,18,.4); 
+  box-shadow: inset 0 2px 10px rgba(0,0,0,.3); 
 }
 .grid{ 
   display:grid; 
@@ -408,33 +387,12 @@ select:focus{
   transform: translateZ(0); 
 }
 
-.info-panel{
-  background: linear-gradient(145deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-  border:1px solid rgba(255,255,255,.1);
-  padding:14px 16px;
-  border-radius:12px;
-  color:var(--text-secondary);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 24px rgba(0,0,0,.32);
-}
-
-.footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:var(--muted);
-  padding:12px 4px 6px;
-  border-top:1px solid rgba(255,255,255,.08);
-  margin-top:18px;
-  font-weight:700;
-  letter-spacing:0.5px;
-}
-
 /* cards - Modern Forum Post Style */
 .card{ 
   border-radius:16px; 
   padding:16px; 
   background: var(--card-bg); 
-  border:1px solid rgba(255,255,255,.08); 
+  border:2px solid transparent; 
   min-height:240px; 
   display:flex; 
   flex-direction:column; 
@@ -459,14 +417,14 @@ select:focus{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(145deg, rgba(55,210,255,.08), rgba(255,179,71,.05));
+  background:linear-gradient(135deg, rgba(30,144,255,.05), rgba(13,17,23,.05));
   opacity:0;
   transition:opacity .3s;
 }
 .card:hover{
   transform:translateY(-8px) scale(1.02);
-  border-color:rgba(255,255,255,.3);
-  box-shadow:0 16px 42px rgba(0,0,0,.55), 0 0 0 1px rgba(55,210,255,.35);
+  border-color:var(--accent);
+  box-shadow:0 12px 40px rgba(30,144,255,.3), 0 0 0 1px var(--accent);
 }
 .card:hover::before{
   transform:scaleX(1);
@@ -498,14 +456,14 @@ select:focus{
   align-items:center; 
   justify-content:center; 
   padding:12px; 
-  background: radial-gradient(circle at 30% 20%, rgba(55,210,255,.08), transparent 60%), rgba(0,0,0,.25); 
+  background: rgba(0,0,0,.2); 
   border-radius:12px; 
   margin-bottom:12px; 
   min-height:140px; 
   position:relative;
   z-index:1;
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: inset 0 0 12px rgba(55,210,255,.16), 0 0 16px rgba(0,0,0,.35);
+  border: 2px solid rgba(30,144,255,.4);
+  box-shadow: inset 0 0 12px rgba(30,144,255,.2), 0 0 16px rgba(30,144,255,.3);
 }
 .img-wrap img{ 
   width:100%; 
@@ -530,11 +488,11 @@ select:focus{
   text-transform:uppercase;
   letter-spacing:1px;
 }
-.badge.common{background:linear-gradient(135deg, rgba(128,128,128,.9), rgba(160,160,160,.9));color:#fff;border-color:#808080;}
+.badge.common{background:linear-gradient(135deg, rgba(173,216,230,.9), rgba(135,206,250,.9));color:#000;border-color:#4a90e2;}
 .badge.uncommon{background:linear-gradient(135deg, rgba(34,177,76,.9), rgba(76,175,80,.9));color:#fff;}
-.badge.rare{background:linear-gradient(135deg, rgba(33,150,243,.9), rgba(66,165,245,.9));color:#fff;border-color:#42a5f5;}
-.badge.epic{background:linear-gradient(135deg, rgba(156,39,176,.9), rgba(171,71,188,.9));color:#fff;}
-.badge.legendary{background:linear-gradient(135deg, rgba(255,0,0,.95), rgba(220,20,60,.95));color:#fff;box-shadow:0 4px 12px rgba(255,0,0,.6), 0 0 20px rgba(255,0,0,.4);z-index:2;border-color:rgba(255,0,0,.8);}
+.badge.rare{background:linear-gradient(135deg, rgba(255,193,7,.9), rgba(255,211,0,.9));color:#000;border-color:#fdd835;}
+.badge.epic{background:linear-gradient(135deg, rgba(255,87,34,.9), rgba(255,112,67,.9));color:#fff;}
+.badge.legendary{background:linear-gradient(135deg, rgba(244,67,54,.9), rgba(229,57,53,.9));color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.4);z-index:2;}
 
 /* turf map */
 .turf-map { width:100%; height:460px; border-radius:12px; overflow:hidden; background:linear-gradient(180deg, rgba(0,0,0,.12), rgba(255,255,255,0)); border:1px solid rgba(255,255,255,.04); box-shadow: 0 20px 60px rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; }
@@ -545,49 +503,46 @@ select:focus{
 .acquired-grid{ margin-top:8px; display:flex; gap:10px; flex-wrap:wrap; }
 
 /* modals */
-.modal-overlay{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.85); z-index:9999; backdrop-filter: blur(4px); }
+.modal-overlay{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.72); z-index:9999; }
 .modal-overlay.open{ display:flex; }
-.modal{ width:920px; max-width:96%; border-radius:16px; padding:24px; background: var(--card-bg); border:2px solid rgba(255,0,0,.4); box-shadow: 0 22px 60px rgba(255,0,0,.4), inset 0 2px 20px rgba(255,0,0,.08); }
+.modal{ width:920px; max-width:96%; border-radius:12px; padding:18px; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.06); box-shadow: 0 22px 60px rgba(0,0,0,.6); }
 
 /* weapon popup (Killadelphia-style) */
 .weapon-popup {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99999;
-  backdrop-filter: blur(4px);
 }
 .weapon-popup.hidden { display:none; }
 .weapon-popup-inner {
   width: 80%;
   max-width: 980px;
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 24px;
+  background: linear-gradient(180deg, rgba(20,20,25,0.95), rgba(10,10,12,0.92));
+  border-radius: 14px;
+  padding: 20px;
   color: white;
-  box-shadow: 0 0 50px rgba(255,0,0,0.5), inset 0 2px 30px rgba(255,0,0,.08);
-  border: 2px solid rgba(255,0,0,.4);
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
-.weapon-popup-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; padding-bottom:12px; border-bottom: 2px solid rgba(255,0,0,.3); }
-.weapon-popup-header h2 { font-size:28px; margin:0; font-weight:900; color:var(--accent); text-shadow: 0 0 15px rgba(255,0,0,.5); }
-.rarity-tag { padding:8px 16px; border-radius:8px; font-weight:900; font-size:14px; color:#fff; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: 1px solid rgba(255,0,0,.6); box-shadow: 0 4px 12px rgba(255,0,0,.4); }
-.weapon-popup-body { display:flex; gap:20px; align-items:flex-start; }
-.weapon-popup-image { width:300px; height:300px; object-fit:contain; background:linear-gradient(135deg, rgba(255,0,0,.08), rgba(0,0,0,.6)); border-radius:16px; padding:16px; border: 2px solid rgba(255,0,0,.25); }
-.weapon-stats-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:14px; flex:1; }
-.stat-card { background:rgba(0,0,0,0.7); padding:16px; border-radius:12px; border: 2px solid rgba(255,0,0,.25); transition: all .2s ease; }
-.stat-card:hover { border-color: rgba(255,0,0,.5); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,0,0,.2); }
-.stat-title { color:var(--muted); font-weight:800; font-size:13px; text-transform: uppercase; }
-.stat-value { font-weight:900; font-size:22px; margin-top:8px; color:#fff; text-shadow: 0 2px 8px rgba(255,0,0,.4); }
+.weapon-popup-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.weapon-popup-header h2 { font-size:24px; margin:0; font-weight:900; color:var(--accent); }
+.rarity-tag { padding:6px 12px; border-radius:999px; font-weight:900; font-size:13px; color:#fff; background:rgba(255,255,255,0.06); }
+.weapon-popup-body { display:flex; gap:16px; align-items:flex-start; }
+.weapon-popup-image { width:300px; height:300px; object-fit:contain; background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(255,255,255,0)); border-radius:12px; padding:12px; }
+.weapon-stats-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; flex:1; }
+.stat-card { background:rgba(0,0,0,0.35); padding:14px; border-radius:10px; }
+.stat-title { color:var(--muted); font-weight:800; font-size:12px; }
+.stat-value { font-weight:900; font-size:18px; margin-top:6px; color:#fff; }
 
 /* Victory Frame */
 .victory-overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.97) 70%);
+  background: radial-gradient(ellipse at center, rgba(30, 144, 255, 0.15) 0%, rgba(0, 0, 0, 0.97) 70%);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -603,14 +558,14 @@ select:focus{
 
 .victory-card {
   position: relative;
-  background: var(--card-bg);
+  background: linear-gradient(135deg, rgba(26, 10, 10, 0.98) 0%, rgba(10, 5, 5, 0.98) 50%, rgba(18, 6, 18, 0.98) 100%);
   border: 3px solid transparent;
   border-radius: 20px;
   padding: 0;
   max-width: 1000px;
   width: 95%;
   text-align: center;
-  box-shadow: 0 20px 80px rgba(255, 0, 0, 0.5), 0 0 2px rgba(255, 0, 0, 0.8), inset 0 0 40px rgba(255, 0, 0, 0.12);
+  box-shadow: 0 20px 80px rgba(30, 144, 255, 0.4), 0 0 2px rgba(30, 144, 255, 0.8), inset 0 0 40px rgba(30, 144, 255, 0.08);
   animation: victoryScale 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   overflow: hidden;
   max-height: 90vh;
@@ -623,7 +578,7 @@ select:focus{
   inset: 0;
   padding: 3px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #ff0000 0%, #0a0000 50%, #dc143c 100%);
+  background: linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -644,10 +599,10 @@ select:focus{
 }
 
 .victory-header {
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3) 0%, rgba(10, 0, 0, 0.2) 50%, rgba(220, 20, 60, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.3) 0%, rgba(13, 17, 23, 0.2) 50%, rgba(30, 144, 255, 0.3) 100%);
   padding: 24px;
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(90deg, #ff0000 0%, #0a0000 50%, #dc143c 100%) 1;
+  border-image: linear-gradient(90deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%) 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -658,7 +613,7 @@ select:focus{
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(10, 0, 0, 0.05));
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(13, 17, 23, 0.05));
   pointer-events: none;
 }
 
@@ -666,11 +621,11 @@ select:focus{
   margin: 0;
   font-size: 42px;
   font-weight: 900;
-  background: linear-gradient(135deg, #ff4444 0%, #ff0000 50%, #dc143c 100%);
+  background: linear-gradient(135deg, #4a9eff 0%, #4682b4 50%, #4a9eff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+  filter: drop-shadow(0 0 20px rgba(255, 71, 87, 0.6));
   letter-spacing: 3px;
   position: relative;
   z-index: 1;
@@ -718,7 +673,7 @@ select:focus{
   inset: 0;
   padding: 2px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.5) 0%, rgba(10, 0, 0, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.4) 0%, rgba(13, 17, 23, 0.4) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -746,11 +701,11 @@ select:focus{
 
 .victory-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5), 0 0 20px rgba(10, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.5), 0 0 20px rgba(13, 17, 23, 0.3);
 }
 
 .victory-item:hover::before {
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.7) 0%, rgba(10, 0, 0, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.7) 0%, rgba(13, 17, 23, 0.7) 100%);
 }
 
 .victory-image-container {
@@ -758,13 +713,13 @@ select:focus{
   width: 180px;
   height: 180px;
   margin-bottom: 15px;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(10, 0, 0, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(13, 17, 23, 0.2) 100%);
   border: 2px solid transparent;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5), inset 0 0 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 25px rgba(30, 144, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
   animation: victoryImagePulse 2s ease-in-out infinite;
   overflow: hidden;
 }
@@ -775,7 +730,7 @@ select:focus{
   inset: 0;
   padding: 2px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #ff0000 0%, #0a0000 50%, #dc143c 100%);
+  background: linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -785,10 +740,10 @@ select:focus{
 
 @keyframes victoryImagePulse {
   0%, 100% {
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.5), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 25px rgba(30, 144, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 35px rgba(255, 0, 0, 0.7), 0 0 20px rgba(10, 0, 0, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 35px rgba(30, 144, 255, 0.6), 0 0 20px rgba(13, 17, 23, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -842,22 +797,22 @@ select:focus{
 }
 
 .victory-item-rarity.legendary {
-  background: linear-gradient(135deg, #ff0000, #dc143c);
+  background: linear-gradient(135deg, #f59e0b, #d97706);
   color: #ffffff;
 }
 
 .victory-item-rarity.special {
-  background: linear-gradient(135deg, #ff6b35, #ff0000);
+  background: linear-gradient(135deg, #ff6b35, #1e90ff);
   color: #ffffff;
   animation: rarityGlow 1.5s ease-in-out infinite;
 }
 
 @keyframes rarityGlow {
   0%, 100% {
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.5);
   }
   50% {
-    box-shadow: 0 4px 25px rgba(255, 0, 0, 1);
+    box-shadow: 0 4px 25px rgba(30, 144, 255, 0.9);
   }
 }
 
@@ -875,7 +830,7 @@ select:focus{
   padding: 18px;
   font-size: 20px;
   font-weight: 900;
-  background: linear-gradient(135deg, #ff0000, #dc143c);
+  background: linear-gradient(135deg, #1e90ff, #4a9eff);
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -883,13 +838,13 @@ select:focus{
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
 }
 
 .victory-collect-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.8);
-  background: linear-gradient(135deg, #ff3333, #ff0000);
+  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.7);
+  background: linear-gradient(135deg, #4a9eff, #1e90ff);
 }
 
 .victory-collect-btn:active {
@@ -976,16 +931,16 @@ select:focus{
 <body>
  
   <!-- Background video (muted) -->
-  <video id="bgVideo" autoplay muted loop playsinline preload="metadata" style="will-change:auto;">
-    <!-- Video source will be set dynamically via JavaScript -->
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
   </video>
   <div id="bgDark" aria-hidden="true"></div>
-  <img id="bgEmblem" loading="lazy" alt="" aria-hidden="true">
+  <img id="bgEmblem" src="TFB.png" alt="" aria-hidden="true">
 
   <div class="wrap">
     <div class="header">
       <div class="header-left">
-        <h1 class="title">7th Zone</h1>
+        <h1 class="title">The Five Borough Illegal Factions</h1>
         <div class="subtitle">Illegal Factions</div>
 
         <div class="topnav" id="mainNav">
@@ -1006,6 +961,7 @@ select:focus{
         <div id="userProfile" class="user-profile" style="display:none; cursor:pointer;" title="User Profile">
           <i class="fa-solid fa-user-circle"></i>&nbsp;<span id="userDisplayName">Guest</span>
         </div>
+        <div class="logo"><img src="TFB.png" class="header-logo" alt="TFB logo"></div>
       </div>
     </div>
 
@@ -1052,7 +1008,7 @@ select:focus{
     </div>
 
     <div style="height:18px"></div>
-    <div class="footer"><div>© 7th Zone</div><div style="color:var(--muted)">Built with ❤️</div></div>
+    <div class="footer"><div>© The Five Borough Illegal Factions</div><div style="color:var(--muted)">Built with ❤️</div></div>
   </div>
 
   <!-- Spin modal -->
@@ -1065,11 +1021,11 @@ select:focus{
 
       <div style="position:relative; margin-top:12px;">
         <div id="spinStrip" style="height:140px; display:flex; gap:12px; align-items:center; overflow:hidden; padding:10px;"></div>
-        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:6px; height:120px; border-radius:6px; background:linear-gradient(180deg, #ff0000, #ff0000); box-shadow: 0 0 30px rgba(255,0,0,.8), 0 0 15px rgba(255,0,0,1); pointer-events:none;"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:6px; height:120px; border-radius:6px; background:linear-gradient(180deg, #ff0000, #1e90ff); box-shadow: 0 0 30px rgba(255,0,0,.8), 0 0 15px rgba(255,0,0,1); pointer-events:none;"></div>
       </div>
 
       <!-- Display for landed gun -->
-      <div id="landedGunDisplay" style="display:none; margin-top:16px; padding:16px; background:rgba(0,0,0,.6); border:2px solid rgba(255,0,0,.6); border-radius:10px; text-align:center;">
+      <div id="landedGunDisplay" style="display:none; margin-top:16px; padding:16px; background:rgba(0,0,0,.6); border:2px solid rgba(30,144,255,.5); border-radius:10px; text-align:center;">
         <div style="font-weight:900; color:var(--accent); margin-bottom:8px;">YOU GOT:</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:16px;">
           <img id="landedGunImage" src="" style="max-width:100px; max-height:80px; object-fit:contain;">
@@ -1159,7 +1115,7 @@ select:focus{
   </div>
 
   <!-- background audio (extracted) -->
-  <audio id="bgm" loop preload="auto"></audio>
+  <audio id="bgm" src="background_audio.mp3" loop preload="auto"></audio>
 
 <script>
 /* Single-file Quaker City (Option B) */
@@ -1193,59 +1149,87 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL.includes('.supabase.co')) 
 /* =========================================================
    BASE PATH — GITHUB PAGES COMPATIBILITY
    ========================================================= */
-// Automatically detect a safe base path (works for local, custom domains, and GitHub Pages)
-const rawPath = window.location.pathname.replace(/\/index\.html$/, '');
-const normalizedPath = rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath;
-const BASE_PATH = window.location.protocol === 'file:' ? '.' : (normalizedPath || '');
+// Automatically detect if running locally or on GitHub Pages
+const BASE_PATH = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:' 
+  ? '.' 
+  : '/TFB-Illegal-Factions';
 
 console.log('BASE_PATH:', BASE_PATH);
 console.log('Location:', window.location.hostname, window.location.protocol);
 
 /* =========================================================
-   IMAGE MAP — ADD YOUR OWN WEAPONS HERE
+   IMAGE MAP — VALID GUNS ONLY (39 TOTAL)
    ========================================================= */
 
 const IMAGES = {
-  // Uncommon (Gray)
-  'CANIK': BASE_PATH + '/Gunimages/WEAPON_CANIK.png',
-  'P88P': BASE_PATH + '/Gunimages/WEAPON_P88P.png',
+  '1911': BASE_PATH + '/Gunimage/1911.png',
+  '38_revolver': BASE_PATH + '/Gunimage/38_revolver.png',
+  'GH': BASE_PATH + '/Gunimage/GH.png',
+  'M_P9': BASE_PATH + '/Gunimage/M_P9.png',
+  'Tri_11s': BASE_PATH + '/Gunimage/Tri_11s.png',
+  'artic_hcat': BASE_PATH + '/Gunimage/artic_hcat.png',
+  'bape_glock': BASE_PATH + '/Gunimage/bape_glock.png',
+  'black_p80': BASE_PATH + '/Gunimage/black_p80.png',
+  'fn57': BASE_PATH + '/Gunimage/fn57.png',
+  'fnx45': BASE_PATH + '/Gunimage/fnx45.png',
+  'g17_arma': BASE_PATH + '/Gunimage/g17_arma.png',
+  'g19_flex': BASE_PATH + '/Gunimage/g19_flex.png',
+  'g19_foregrip': BASE_PATH + '/Gunimage/g19_foregrip.png',
+  'g20': BASE_PATH + '/Gunimage/g20.png',
+  'g20_switch': BASE_PATH + '/Gunimage/g20_switch.png',
+  'g21': BASE_PATH + '/Gunimage/g21.png',
+  'g23': BASE_PATH + '/Gunimage/g23.png',
+  'g26_switch': BASE_PATH + '/Gunimage/g26_switch.png',
+  'g30': BASE_PATH + '/Gunimage/g30.png',
+  'g40': BASE_PATH + '/Gunimage/g40.png',
+  'g43x': BASE_PATH + '/Gunimage/g43x.png',
+  'g45': BASE_PATH + '/Gunimage/g45.png',
+  'g45x': BASE_PATH + '/Gunimage/g45x.png',
+  'g48': BASE_PATH + '/Gunimage/g48.png',
+  'gflex': BASE_PATH + '/Gunimage/gflex.png',
+  'gg45': BASE_PATH + '/Gunimage/gg45.png',
+  'hellcat': BASE_PATH + '/Gunimage/hellcat.png',
+  'hipoint': BASE_PATH + '/Gunimage/hipoint.png',
+  'keltec': BASE_PATH + '/Gunimage/keltec.png',
+  'm9': BASE_PATH + '/Gunimage/m9.png',
+  'mac10': BASE_PATH + '/Gunimage/mac10.png',
+  'psa_dagger': BASE_PATH + '/Gunimage/psa_dagger.png',
+  'ruger57': BASE_PATH + '/Gunimage/ruger57.png',
+  'sig_p320': BASE_PATH + '/Gunimage/sig_p320.png',
+  'sr40': BASE_PATH + '/Gunimage/sr40.png',
+  'tan_19x': BASE_PATH + '/Gunimage/tan_19x.png',
+  'tarkov_gspc': BASE_PATH + '/Gunimage/tarkov_gspc.png',
+  'tec9': BASE_PATH + '/Gunimage/tec9.png',
   
-  // Common (Green)
-  'CPT': BASE_PATH + '/Gunimages/WEAPON_CPT.png',
-  'DCOMB': BASE_PATH + '/Gunimages/WEAPON_DCOMB.png',
-  'G17G5': BASE_PATH + '/Gunimages/WEAPON_G17G5.png',
-  'G19G': BASE_PATH + '/Gunimages/WEAPON_G19G.png',
-  'G43G': BASE_PATH + '/Gunimages/WEAPON_G43G.png',
-  'G233': BASE_PATH + '/Gunimages/WEAPON_G233.png',
-  'HK45': BASE_PATH + '/Gunimages/WEAPON_HK45.png',
-  'OLIVE17': BASE_PATH + '/Gunimages/WEAPON_OLIVE17.png',
-  'SIGCB': BASE_PATH + '/Gunimages/WEAPON_SIGCB.png',
+  // New Weapons - Common (Black & White / Green)
+  'callous': BASE_PATH + '/Gunimage/WEAPON_CALLOUS.png', // 1911
+  'g17g5': BASE_PATH + '/Gunimage/WEAPON_G17G5.png',
+  'hk45': BASE_PATH + '/Gunimage/WEAPON_HK45.png',
+  'g43g': BASE_PATH + '/Gunimage/WEAPON_G43G.png',
+  'dcomb': BASE_PATH + '/Gunimage/WEAPON_DCOMB.png', // G19X
+  'g233': BASE_PATH + '/Gunimage/WEAPON_G233.png',
+  'g40_common': BASE_PATH + '/Gunimage/WEAPON_G40.png',
+  'sigcb': BASE_PATH + '/Gunimage/WEAPON_SIGCB.png', // SIG P320
+  'p88p': BASE_PATH + '/Gunimage/WEAPON_P88P.png', // Walther P88
+  'cpt': BASE_PATH + '/Gunimage/WEAPON_CPT.png', // Glock 45x
   
-  // Rare (Blue)
-  'CALLOUS': BASE_PATH + '/Gunimages/WEAPON_CALLOUS.png',
-  'FFN': BASE_PATH + '/Gunimages/WEAPON_FFN.png',
-  'G45S': BASE_PATH + '/Gunimages/WEAPON_G45S.png',
-  'OLIVEG19': BASE_PATH + '/Gunimages/WEAPON_OLIVEG19.png',
+  // New Weapons - Rare (Pink / Purple)
+  'fn57': BASE_PATH + '/Gunimage/WEAPON_FFN.png', // .45 ACP FN 57
+  'g45': BASE_PATH + '/Gunimage/WEAPON_OLIVEG19.png', // G45 (renamed from oliveg19)
   
-  // Epic (Purple)
-  '19SWITCH': BASE_PATH + '/Gunimages/WEAPON_19SWITCH.png',
-  '43MOS': BASE_PATH + '/Gunimages/WEAPON_43MOS.png',
-  '45MOS': BASE_PATH + '/Gunimages/WEAPON_45MOS.png',
-  'AP3': BASE_PATH + '/Gunimages/WEAPON_AP3.png',
-  'FN': BASE_PATH + '/Gunimages/WEAPON_FN.png',
-  'FNX45': BASE_PATH + '/Gunimages/WEAPON_FNX45.png',
-  'G26S': BASE_PATH + '/Gunimages/WEAPON_G26S.png',
-  'G205': BASE_PATH + '/Gunimages/WEAPON_G205.png',
-  'MAC10': BASE_PATH + '/Gunimages/WEAPON_MAC10.png',
-  'MGLOCK19': BASE_PATH + '/Gunimages/WEAPON_MGLOCK19.png',
-  'TEC9': BASE_PATH + '/Gunimages/WEAPON_TEC9.png',
+  // New Weapons - Epic (Orange)
+  'ap3': BASE_PATH + '/Gunimage/WEAPON_AP3.png', // G23 Switch
+  '45mos': BASE_PATH + '/Gunimage/WEAPON_45MOS.png', // G45 MOS
+  '43mos': BASE_PATH + '/Gunimage/WEAPON_43MOS.png', // G43 MOS
+  '19switch': BASE_PATH + '/Gunimage/WEAPON_19SWITCH.png', // G19 Switch
+  'mac10_new': BASE_PATH + '/Gunimage/WEAPON_MAC10.png',
+  'fnx45_new': BASE_PATH + '/Gunimage/WEAPON_FNX45.png',
+  'g40_epic': BASE_PATH + '/Gunimage/WEAPON_G40.png', // Alt Skin
   
-  // Legendary (Orange)
-  'ARPSH': BASE_PATH + '/Gunimages/WEAPON_ARPSH.png',
-  'DRACO2': BASE_PATH + '/Gunimages/WEAPON_DRACO2.png',
-  'DRACOZ': BASE_PATH + '/Gunimages/WEAPON_DRACOZ.png',
-  'KVEC': BASE_PATH + '/Gunimages/WEAPON_KVEC.png',
-  'MCX': BASE_PATH + '/Gunimages/WEAPON_MCX.png',
+  // New Weapons - Legendary (Red)
+  'dracoz': BASE_PATH + '/Gunimage/WEAPON_DRACOZ.png',
+  'draco2': BASE_PATH + '/Gunimage/WEAPON_DRACO2.png', // Olive Draco
+  'arpsh': BASE_PATH + '/Gunimage/WEAPON_ARPSH.png', // ARP Binary
   
   // Drug images
   'Weed': BASE_PATH + '/Gunimage/weed.png',
@@ -1260,52 +1244,84 @@ const IMAGES = {
   'PCP': BASE_PATH + '/Gunimage/pcp.png'
 };
 
+// Debug: Log some image paths
+console.log('Sample image paths:');
+console.log('callious:', IMAGES['callious']);
+console.log('g17g5:', IMAGES['g17g5']);
+console.log('dracoz:', IMAGES['dracoz']);
+
 /* ---------------- FALLBACK IMAGE ---- */
 const FALLBACK =
   'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="240"%3E%3Crect fill="%23333" width="400" height="240"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999"%3ENo Image%3C/text%3E%3C/svg%3E';
 
-/* ---------------- WEAPON STATS — ADD YOUR OWN WEAPON STATS HERE ---- */
+/* ---------------- WEAPON STATS (updated damage by rarity) — 39 VALID GUNS ONLY ---- */
 const WEAPON_STATS = {
-  // Uncommon (Gray)
-  'CANIK': { damage: 22, fire: 680, ammo: '9mm', magStd: 18, magExt: 36 },
-  'P88P': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
+  /* ---- COMMON (Green background - new olive green guns) ---- */
+  'callous': { damage: 24, fire: 500, ammo: '.45 ACP', magStd: 7, magExt: 14 },
+  'g17g5': { damage: 25, fire: 730, ammo: '9mm', magStd: 17, magExt: 34 },
+  'hk45': { damage: 27, fire: 650, ammo: '.45 ACP', magStd: 10, magExt: 20 },
+  'g43g': { damage: 25, fire: 700, ammo: '9mm', magStd: 10, magExt: 20 },
+  'dcomb': { damage: 25, fire: 700, ammo: '9mm', magStd: 19, magExt: 38 },
+  'g233': { damage: 25, fire: 760, ammo: '.40 S&W', magStd: 13, magExt: 26 },
+  'g40_common': { damage: 29, fire: 650, ammo: '10mm', magStd: 15, magExt: 30 },
+  'sigcb': { damage: 25, fire: 770, ammo: '9mm', magStd: 17, magExt: 34 },
+  'p88p': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
+  'cpt': { damage: 25, fire: 700, ammo: '9mm', magStd: 14, magExt: 28 },
   
-  // Common (Green)
-  'CPT': { damage: 25, fire: 700, ammo: '9mm', magStd: 14, magExt: 28 },
-  'DCOMB': { damage: 25, fire: 700, ammo: '9mm', magStd: 19, magExt: 38 },
-  'G17G5': { damage: 25, fire: 730, ammo: '9mm', magStd: 17, magExt: 34 },
-  'G19G': { damage: 25, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
-  'G43G': { damage: 25, fire: 700, ammo: '9mm', magStd: 10, magExt: 20 },
-  'G233': { damage: 25, fire: 760, ammo: '.40 S&W', magStd: 13, magExt: 26 },
-  'HK45': { damage: 27, fire: 650, ammo: '.45 ACP', magStd: 10, magExt: 20 },
-  'OLIVE17': { damage: 25, fire: 730, ammo: '9mm', magStd: 17, magExt: 34 },
-  'SIGCB': { damage: 25, fire: 770, ammo: '9mm', magStd: 17, magExt: 34 },
+  /* ---- UNCOMMON (Black/White background - old guns) ---- */
+  '1911': { damage: 24, fire: 500, ammo: '.45 ACP', magStd: 7, magExt: 14 },
+  '38_revolver': { damage: 22, fire: 450, ammo: '.38 Special', magStd: 6, magExt: 12 },
+  'GH': { damage: 25, fire: 550, ammo: '9mm', magStd: 8, magExt: 16 },
+  'M_P9': { damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 30 },
+  'Tri_11s': { damage: 25, fire: 750, ammo: '9mm', magStd: 12, magExt: 24 },
+  'bape_glock': { damage: 24, fire: 600, ammo: '9mm', magStd: 15, magExt: 30 },
+  'black_p80': { damage: 25, fire: 740, ammo: '9mm', magStd: 18, magExt: 36 },
+  'g20': { damage: 25, fire: 730, ammo: '9mm', magStd: 16, magExt: 32 },
+  'g23': { damage: 25, fire: 760, ammo: '.45 ACP', magStd: 13, magExt: 26 },
+  'g43x': { damage: 25, fire: 700, ammo: '9mm', magStd: 10, magExt: 20 },
+  'g45': { damage: 25, fire: 740, ammo: '9mm', magStd: 10, magExt: 20 },
+  'g48': { damage: 25, fire: 700, ammo: '9mm', magStd: 10, magExt: 20 },
+  'hellcat': { damage: 24, fire: 700, ammo: '9mm', magStd: 11, magExt: 22 },
+  'sig_p320': { damage: 25, fire: 770, ammo: '9mm', magStd: 17, magExt: 34 },
+  'artic_hcat': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
+  'fn57': { damage: 21, fire: 600, ammo: '5.7x28mm', magStd: 20, magExt: 40 },
+  'g19_foregrip': { damage: 25, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
+  'g21': { damage: 27, fire: 680, ammo: '.45 ACP', magStd: 13, magExt: 26 },
+  'g30': { damage: 28, fire: 650, ammo: '.45 ACP', magStd: 10, magExt: 20 },
+  'gflex': { damage: 26, fire: 700, ammo: '9mm', magStd: 13, magExt: 26 },
+  'hipoint': { damage: 20, fire: 400, ammo: '.45 ACP', magStd: 8, magExt: 16 },
+  'm9': { damage: 25, fire: 650, ammo: '9mm', magStd: 15, magExt: 30 },
+  'gg45': { damage: 28, fire: 680, ammo: '.45 ACP', magStd: 11, magExt: 22 },
+  'g45x': { damage: 25, fire: 700, ammo: '9mm', magStd: 14, magExt: 28 },
   
-  // Rare (Blue)
-  'CALLOUS': { damage: 28, fire: 500, ammo: '.45 ACP', magStd: 7, magExt: 14 },
-  'FFN': { damage: 27, fire: 600, ammo: '5.7x28mm', magStd: 20, magExt: 40 },
-  'G45S': { damage: 28, fire: 740, ammo: '9mm', magStd: 17, magExt: 34 },
-  'OLIVEG19': { damage: 28, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
+  /* ---- RARE (Yellow old + Pink/Purple new) ---- */
+  'fnx45': { damage: 27, fire: 680, ammo: '.45 ACP', magStd: 15, magExt: 30 },
+  'g19_flex': { damage: 25, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
+  'g20_switch': { damage: 27, fire: 680, ammo: '10mm', magStd: 15, magExt: 30 },
+  'g26_switch': { damage: 24, fire: 680, ammo: '9mm', magStd: 10, magExt: 20 },
+  'g40': { damage: 29, fire: 650, ammo: '10mm', magStd: 15, magExt: 30 },
+  'keltec': { damage: 21, fire: 600, ammo: '9mm', magStd: 6, magExt: 12 },
+  'mac10': { damage: 28, fire: 1050, ammo: '.45 ACP', magStd: 30, magExt: 42 },
+  'psa_dagger': { damage: 32, fire: 850, ammo: '9mm', magStd: 20, magExt: 40 },
+  'ruger57': { damage: 23, fire: 620, ammo: '5.7x28mm', magStd: 20, magExt: 40 },
+  'sr40': { damage: 27, fire: 700, ammo: '.40 S&W', magStd: 15, magExt: 30 },
+  'tan_19x': { damage: 25, fire: 700, ammo: '9mm', magStd: 19, magExt: 38 },
+  'tarkov_gspc': { damage: 31, fire: 800, ammo: '9mm', magStd: 18, magExt: 36 },
   
-  // Epic (Purple)
-  '19SWITCH': { damage: 30, fire: 850, ammo: '9mm', magStd: 33, magExt: 50 },
-  '43MOS': { damage: 30, fire: 700, ammo: '9mm', magStd: 10, magExt: 20 },
-  '45MOS': { damage: 30, fire: 740, ammo: '9mm', magStd: 17, magExt: 34 },
-  'AP3': { damage: 30, fire: 850, ammo: '.40 S&W', magStd: 13, magExt: 26 },
-  'FN': { damage: 30, fire: 620, ammo: '5.7x28mm', magStd: 20, magExt: 40 },
-  'FNX45': { damage: 30, fire: 680, ammo: '.45 ACP', magStd: 15, magExt: 30 },
-  'G26S': { damage: 30, fire: 680, ammo: '9mm', magStd: 10, magExt: 20 },
-  'G205': { damage: 30, fire: 680, ammo: '10mm', magStd: 15, magExt: 30 },
-  'MAC10': { damage: 30, fire: 1050, ammo: '.45 ACP', magStd: 30, magExt: 42 },
-  'MGLOCK19': { damage: 30, fire: 850, ammo: '9mm', magStd: 33, magExt: 50 },
-  'TEC9': { damage: 30, fire: 1200, ammo: '9mm', magStd: 32, magExt: 50 },
+  /* ---- EPIC (Orange background) ---- */
+  'ap3': { damage: 30, fire: 850, ammo: '.40 S&W', magStd: 13, magExt: 26 },
+  '45mos': { damage: 28, fire: 740, ammo: '9mm', magStd: 17, magExt: 34 },
+  '43mos': { damage: 30, fire: 700, ammo: '9mm', magStd: 10, magExt: 20 },
+  '19switch': { damage: 30, fire: 850, ammo: '9mm', magStd: 33, magExt: 50 },
+  'mac10_new': { damage: 28, fire: 1050, ammo: '.45 ACP', magStd: 30, magExt: 42 },
+  'fnx45_new': { damage: 27, fire: 680, ammo: '.45 ACP', magStd: 15, magExt: 30 },
+  'g40_epic': { damage: 32, fire: 650, ammo: '10mm', magStd: 15, magExt: 30 },
   
-  // Legendary (Orange)
-  'ARPSH': { damage: 42, fire: 850, ammo: '5.56x45mm', magStd: 30, magExt: 60 },
-  'DRACO2': { damage: 45, fire: 650, ammo: '7.62x39mm', magStd: 30, magExt: 75 },
-  'DRACOZ': { damage: 45, fire: 650, ammo: '7.62x39mm', magStd: 30, magExt: 75 },
-  'KVEC': { damage: 48, fire: 900, ammo: '7.62x39mm', magStd: 30, magExt: 75 },
-  'MCX': { damage: 44, fire: 800, ammo: '5.56x45mm', magStd: 30, magExt: 60 }
+  /* ---- LEGENDARY (Red background) ---- */
+  'tec9': { damage: 40, fire: 1200, ammo: '9mm', magStd: 32, magExt: 50 },
+  'dracoz': { damage: 45, fire: 650, ammo: '7.62x39mm', magStd: 30, magExt: 75 },
+  'draco2': { damage: 45, fire: 650, ammo: '7.62x39mm', magStd: 30, magExt: 75 },
+  'arpsh': { damage: 42, fire: 850, ammo: '5.56x45mm', magStd: 30, magExt: 60 }
 };
 
 /* ---------------- DRUG PRICES ---------------- */
@@ -1322,93 +1338,103 @@ const DRUG_PRICES = {
   'PCP': { price: '$7,000–$10,000' }
 };
 
-/* ------------ ITEMS DATASET — ADD YOUR OWN WEAPONS HERE ------------ */
+/* ------------ ITEMS DATASET (39 VALID GUNS ONLY) ------------ */
 const ITEMS = {
   testdrops: [
-    // Uncommon (Gray)
-    { name:'CANIK', rarity:'uncommon', category:'Pistols', img:IMAGES['CANIK'] || FALLBACK },
-    { name:'P88P', rarity:'uncommon', category:'Pistols', img:IMAGES['P88P'] || FALLBACK },
+    // Common - Green background (new olive green guns)
+    { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
+    { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
+    { name:'g43g', rarity:'common', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
+    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
+    { name:'g233', rarity:'common', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
+    { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK },
+    { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
+    { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
-    // Common (Green)
-    { name:'CPT', rarity:'common', category:'Pistols', img:IMAGES['CPT'] || FALLBACK },
-    { name:'DCOMB', rarity:'common', category:'Pistols', img:IMAGES['DCOMB'] || FALLBACK },
-    { name:'G17G5', rarity:'common', category:'Pistols', img:IMAGES['G17G5'] || FALLBACK },
-    { name:'G19G', rarity:'common', category:'Pistols', img:IMAGES['G19G'] || FALLBACK },
-    { name:'G43G', rarity:'common', category:'Pistols', img:IMAGES['G43G'] || FALLBACK },
-    { name:'G233', rarity:'common', category:'Pistols', img:IMAGES['G233'] || FALLBACK },
-    { name:'HK45', rarity:'common', category:'Pistols', img:IMAGES['HK45'] || FALLBACK },
-    { name:'OLIVE17', rarity:'common', category:'Pistols', img:IMAGES['OLIVE17'] || FALLBACK },
-    { name:'SIGCB', rarity:'common', category:'Pistols', img:IMAGES['SIGCB'] || FALLBACK }
+    // Uncommon - Black/White background (old guns only)
+    { name:'38_revolver', rarity:'uncommon', category:'Pistols', img:IMAGES['38_revolver'] || FALLBACK },
+    { name:'GH', rarity:'uncommon', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
+    { name:'black_p80', rarity:'uncommon', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
+    { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
+    { name:'g23', rarity:'uncommon', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
+    { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
+    { name:'g48', rarity:'uncommon', category:'Pistols', img:IMAGES['g48'] || FALLBACK },
+    { name:'hellcat', rarity:'uncommon', category:'Pistols', img:IMAGES['hellcat'] || FALLBACK },
+    { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
+    { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
+    { name:'hipoint', rarity:'uncommon', category:'Pistols', img:IMAGES['hipoint'] || FALLBACK },
+    { name:'m9', rarity:'uncommon', category:'Pistols', img:IMAGES['m9'] || FALLBACK },
+    { name:'gg45', rarity:'uncommon', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
+    { name:'g45x', rarity:'uncommon', category:'Pistols', img:IMAGES['g45x'] || FALLBACK }
   ],
   
   tier1: [
-    // Common (Green)
-    { name:'CPT', rarity:'common', category:'Pistols', img:IMAGES['CPT'] || FALLBACK },
-    { name:'DCOMB', rarity:'common', category:'Pistols', img:IMAGES['DCOMB'] || FALLBACK },
-    { name:'G17G5', rarity:'common', category:'Pistols', img:IMAGES['G17G5'] || FALLBACK },
-    { name:'G19G', rarity:'common', category:'Pistols', img:IMAGES['G19G'] || FALLBACK },
-    { name:'G43G', rarity:'common', category:'Pistols', img:IMAGES['G43G'] || FALLBACK },
-    { name:'G233', rarity:'common', category:'Pistols', img:IMAGES['G233'] || FALLBACK },
-    { name:'HK45', rarity:'common', category:'Pistols', img:IMAGES['HK45'] || FALLBACK },
-    { name:'OLIVE17', rarity:'common', category:'Pistols', img:IMAGES['OLIVE17'] || FALLBACK },
-    { name:'SIGCB', rarity:'common', category:'Pistols', img:IMAGES['SIGCB'] || FALLBACK },
+    // Common - Green background (new olive green guns)
+    { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
+    { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
+    { name:'g43g', rarity:'common', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
+    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
+    { name:'g233', rarity:'common', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
+    { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK },
+    { name:'g40_common', rarity:'common', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
+    { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
+    { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
-    // Uncommon (Gray)
-    { name:'CANIK', rarity:'uncommon', category:'Pistols', img:IMAGES['CANIK'] || FALLBACK },
-    { name:'P88P', rarity:'uncommon', category:'Pistols', img:IMAGES['P88P'] || FALLBACK },
+    // Uncommon - 1 random uncommon gun
+    { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
     
-    // Rare (Blue)
-    { name:'CALLOUS', rarity:'rare', category:'Pistols', img:IMAGES['CALLOUS'] || FALLBACK },
-    { name:'FFN', rarity:'rare', category:'Pistols', img:IMAGES['FFN'] || FALLBACK },
-    { name:'G45S', rarity:'rare', category:'Pistols', img:IMAGES['G45S'] || FALLBACK },
-    { name:'OLIVEG19', rarity:'rare', category:'Pistols', img:IMAGES['OLIVEG19'] || FALLBACK }
+    // Rare - All old yellow guns
+    { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
+    { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
+    { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
+    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK }
   ],
   
   tier1_5: [
-    // Common (Green)
-    { name:'HK45', rarity:'common', category:'Pistols', img:IMAGES['HK45'] || FALLBACK },
-    { name:'DCOMB', rarity:'common', category:'Pistols', img:IMAGES['DCOMB'] || FALLBACK },
+    // Common - 2 green guns
+    { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
+    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
     
-    // Rare (Blue)
-    { name:'CALLOUS', rarity:'rare', category:'Pistols', img:IMAGES['CALLOUS'] || FALLBACK },
-    { name:'FFN', rarity:'rare', category:'Pistols', img:IMAGES['FFN'] || FALLBACK },
-    { name:'G45S', rarity:'rare', category:'Pistols', img:IMAGES['G45S'] || FALLBACK },
-    { name:'OLIVEG19', rarity:'rare', category:'Pistols', img:IMAGES['OLIVEG19'] || FALLBACK },
+    // Rare - All old yellow guns
+    { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
+    { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
+    { name:'g20_switch', rarity:'rare', category:'Pistols', img:IMAGES['g20_switch'] || FALLBACK },
+    { name:'g26_switch', rarity:'rare', category:'Pistols', img:IMAGES['g26_switch'] || FALLBACK },
+    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK },
+    { name:'keltec', rarity:'rare', category:'Pistols', img:IMAGES['keltec'] || FALLBACK },
+    { name:'mac10', rarity:'rare', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
+    { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
+    { name:'ruger57', rarity:'rare', category:'Pistols', img:IMAGES['ruger57'] || FALLBACK },
+    { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
+    { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
+    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
     
-    // Epic (Purple)
-    { name:'19SWITCH', rarity:'epic', category:'Pistols', img:IMAGES['19SWITCH'] || FALLBACK },
-    { name:'43MOS', rarity:'epic', category:'Pistols', img:IMAGES['43MOS'] || FALLBACK },
-    { name:'45MOS', rarity:'epic', category:'Pistols', img:IMAGES['45MOS'] || FALLBACK },
-    { name:'AP3', rarity:'epic', category:'Pistols', img:IMAGES['AP3'] || FALLBACK },
-    { name:'FN', rarity:'epic', category:'Pistols', img:IMAGES['FN'] || FALLBACK },
-    { name:'FNX45', rarity:'epic', category:'Pistols', img:IMAGES['FNX45'] || FALLBACK },
-    { name:'G26S', rarity:'epic', category:'Pistols', img:IMAGES['G26S'] || FALLBACK },
-    { name:'G205', rarity:'epic', category:'Pistols', img:IMAGES['G205'] || FALLBACK },
-    { name:'MAC10', rarity:'epic', category:'SMG', img:IMAGES['MAC10'] || FALLBACK },
-    { name:'MGLOCK19', rarity:'epic', category:'Pistols', img:IMAGES['MGLOCK19'] || FALLBACK },
-    { name:'TEC9', rarity:'epic', category:'Pistols', img:IMAGES['TEC9'] || FALLBACK }
+    // Epic - All orange guns (old + new)
+    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK },
+    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK },
+    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK },
+    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK },
+    { name:'mac10_new', rarity:'epic', category:'SMG', img:IMAGES['mac10_new'] || FALLBACK },
+    { name:'fnx45_new', rarity:'epic', category:'Pistols', img:IMAGES['fnx45_new'] || FALLBACK },
+    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK }
   ],
   
   tier2: [
-    // Epic (Purple)
-    { name:'19SWITCH', rarity:'epic', category:'Pistols', img:IMAGES['19SWITCH'] || FALLBACK },
-    { name:'43MOS', rarity:'epic', category:'Pistols', img:IMAGES['43MOS'] || FALLBACK },
-    { name:'45MOS', rarity:'epic', category:'Pistols', img:IMAGES['45MOS'] || FALLBACK },
-    { name:'AP3', rarity:'epic', category:'Pistols', img:IMAGES['AP3'] || FALLBACK },
-    { name:'FN', rarity:'epic', category:'Pistols', img:IMAGES['FN'] || FALLBACK },
-    { name:'FNX45', rarity:'epic', category:'Pistols', img:IMAGES['FNX45'] || FALLBACK },
-    { name:'G26S', rarity:'epic', category:'Pistols', img:IMAGES['G26S'] || FALLBACK },
-    { name:'G205', rarity:'epic', category:'Pistols', img:IMAGES['G205'] || FALLBACK },
-    { name:'MAC10', rarity:'epic', category:'SMG', img:IMAGES['MAC10'] || FALLBACK },
-    { name:'MGLOCK19', rarity:'epic', category:'Pistols', img:IMAGES['MGLOCK19'] || FALLBACK },
-    { name:'TEC9', rarity:'epic', category:'Pistols', img:IMAGES['TEC9'] || FALLBACK },
+    // Epic - All orange guns (old + new)
+    { name:'bape_glock', rarity:'epic', category:'Pistols', img:IMAGES['bape_glock'] || FALLBACK },
+    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK },
+    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK },
+    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK },
+    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK },
+    { name:'mac10_new', rarity:'epic', category:'SMG', img:IMAGES['mac10_new'] || FALLBACK },
+    { name:'fnx45_new', rarity:'epic', category:'Pistols', img:IMAGES['fnx45_new'] || FALLBACK },
+    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK },
     
-    // Legendary (Orange)
-    { name:'ARPSH', rarity:'legendary', category:'Rifles', img:IMAGES['ARPSH'] || FALLBACK },
-    { name:'DRACO2', rarity:'legendary', category:'Rifles', img:IMAGES['DRACO2'] || FALLBACK },
-    { name:'DRACOZ', rarity:'legendary', category:'Rifles', img:IMAGES['DRACOZ'] || FALLBACK },
-    { name:'KVEC', rarity:'legendary', category:'Rifles', img:IMAGES['KVEC'] || FALLBACK },
-    { name:'MCX', rarity:'legendary', category:'Rifles', img:IMAGES['MCX'] || FALLBACK }
+    // Legendary - All red guns (old + new)
+    { name:'tec9', rarity:'legendary', category:'Pistols', img:IMAGES['tec9'] || FALLBACK },
+    { name:'dracoz', rarity:'legendary', category:'Rifles', img:IMAGES['dracoz'] || FALLBACK },
+    { name:'draco2', rarity:'legendary', category:'Rifles', img:IMAGES['draco2'] || FALLBACK },
+    { name:'arpsh', rarity:'legendary', category:'Rifles', img:IMAGES['arpsh'] || FALLBACK }
   ],
   
   drugs: [
@@ -1427,6 +1453,8 @@ const ITEMS = {
 
 // Debug: Check what's in the testdrops
 console.log('ITEMS.testdrops count:', ITEMS.testdrops.length);
+console.log('First 5 testdrops:', ITEMS.testdrops.slice(0, 5));
+console.log('Last 5 testdrops:', ITEMS.testdrops.slice(-5));
 
 /* weights */
 const DEFAULT_WEIGHTS = {
@@ -1468,8 +1496,6 @@ const statsImg = document.getElementById('statsImg');
 const statsRarity = document.getElementById('statsRarity');
 const statsDetails = document.getElementById('statsDetails');
 const closeStats = document.getElementById('closeStats');
-const bgVideoEl = document.getElementById('bgVideo');
-const bgEmblemEl = document.getElementById('bgEmblem');
 
 const weaponPopup = document.getElementById('weaponPopup');
 const weaponPopupName = document.getElementById('weaponPopupName');
@@ -1479,35 +1505,6 @@ const statDamage = document.getElementById('statDamage');
 const statFire = document.getElementById('statFire');
 const statAmmo = document.getElementById('statAmmo');
 const statMagazine = document.getElementById('statMagazine');
-
-// Optimized video loading with proper path
-if(bgVideoEl){
-  const videoPath = BASE_PATH + '/video.mp4';
-  const source = document.createElement('source');
-  source.src = videoPath;
-  source.type = 'video/mp4';
-  bgVideoEl.appendChild(source);
-  
-  bgVideoEl.addEventListener('error', () => {
-    console.warn('Background video failed to load:', videoPath);
-    bgVideoEl.style.display = 'none';
-    document.getElementById('bgDark')?.classList.add('bg-fallback');
-  }, { once: true });
-  
-  // Try to play video after short delay
-  bgVideoEl.addEventListener('canplay', () => {
-    bgVideoEl.play().catch(() => console.warn('Video autoplay blocked'));
-  }, { once: true });
-}
-
-// Optimized emblem loading
-if(bgEmblemEl){
-  bgEmblemEl.src = BASE_PATH + '/7th.png';
-  bgEmblemEl.onerror = () => {
-    console.warn('Logo failed to load');
-    bgEmblemEl.style.display = 'none';
-  };
-}
 
 let activeTab = 'testdrops';
 let activeSub = 'All';
@@ -1629,38 +1626,24 @@ function itemsForTab(tab){
   return res;
 }
 
-/* create card (clean & optimized) */
+/* create card (clean) */
 function createCard(item){
   const el = document.createElement('div');
   el.className = 'card';
   const rarity = (item.rarity||'common').toLowerCase();
-  
-  // Use template literals efficiently
-  const name = item.name || '';
-  const imgSrc = item.img || FALLBACK;
-  
   el.innerHTML = `
-    <div class="top-row"><div class="name">${name}</div></div>
-    <div class="img-wrap"><img loading="lazy" decoding="async" src="${imgSrc}" alt="${name}" onerror="this.src='${FALLBACK}'"></div>
+    <div class="top-row"><div class="name">${item.name}</div></div>
+    <div class="img-wrap"><img loading="lazy" src="${item.img}" alt="${item.name}" onerror="this.src='${FALLBACK}'"></div>
     <div style="height:8px"></div>
     <div class="badge ${rarity}">${rarity.toUpperCase()}</div>
   `;
-  
-  // Use passive event listener for better scroll performance  
   el.addEventListener('click', ()=> openWeaponPopupFromCard(item));
   return el;
 }
 
-/* render grid - optimized with RAF and batch updates */
-let renderScheduled = false;
+/* render grid */
 async function renderGrid(forceRefresh = false){
-  // Debounce with requestAnimationFrame for smooth rendering
-  if(renderScheduled && !forceRefresh) return;
-  renderScheduled = true;
-  
-  requestAnimationFrame(async () => {
-    renderScheduled = false;
-    const nodes = itemsForTab(activeTab);
+  const nodes = itemsForTab(activeTab);
 
   // Handle Forums tab
   if(activeTab === 'forums'){
@@ -1788,7 +1771,7 @@ async function renderGrid(forceRefresh = false){
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
           <div>
             <h2 style="color:var(--accent); font-weight:900; font-size:32px; margin:0;">
-              <i class="fa-solid fa-comments"></i> 7th Zone Forums
+              <i class="fa-solid fa-comments"></i> TFB Forums
             </h2>
             <div style="color:var(--muted); margin-top:8px;">Welcome, <strong style="color:var(--accent);">${currentUser.username}</strong></div>
           </div>
@@ -1800,7 +1783,7 @@ async function renderGrid(forceRefresh = false){
         <!-- Forum Categories Grid -->
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-bottom:40px;">
           <!-- General Discussion -->
-          <div class="forum-category-card" style="background:linear-gradient(135deg, rgba(255, 0, 0, 0.15) 0%, rgba(26, 0, 0, 0.95) 100%); border:2px solid rgba(255, 0, 0, 0.3); border-radius:16px; padding:24px; cursor:pointer; transition:all .3s; position:relative; overflow:hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--accent)'; this.style.boxShadow='0 12px 40px rgba(255, 0, 0, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 0, 0, 0.3)'; this.style.boxShadow='none';">
+          <div class="forum-category-card" style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(26, 26, 26, 0.95) 100%); border:2px solid rgba(30, 144, 255, 0.3); border-radius:16px; padding:24px; cursor:pointer; transition:all .3s; position:relative; overflow:hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--accent)'; this.style.boxShadow='0 12px 40px rgba(30, 144, 255, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(30, 144, 255, 0.3)'; this.style.boxShadow='none';">
             <div style="position:absolute; top:-20px; right:-20px; font-size:100px; opacity:0.1; color:var(--accent);">
               <i class="fa-solid fa-messages"></i>
             </div>
@@ -1809,7 +1792,7 @@ async function renderGrid(forceRefresh = false){
                 <i class="fa-solid fa-messages"></i>
               </div>
               <h3 style="color:var(--text); font-weight:900; font-size:22px; margin:0 0 12px 0;">General Discussion</h3>
-              <p style="color:var(--muted); font-size:14px; margin:0 0 16px 0; line-height:1.6;">Talk about anything related to 7th Zone, gameplay, strategies, and more.</p>
+              <p style="color:var(--muted); font-size:14px; margin:0 0 16px 0; line-height:1.6;">Talk about anything related to TFB, gameplay, strategies, and more.</p>
               <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="color:var(--accent); font-weight:700; font-size:14px;">${allThreads.filter(t => t.threadType === 'General').length} Threads</span>
                 <i class="fa-solid fa-arrow-right" style="color:var(--accent);"></i>
@@ -1823,14 +1806,14 @@ async function renderGrid(forceRefresh = false){
               <i class="fa-solid fa-mask"></i>
             </div>
             <div style="position:relative; z-index:1;">
-              <div style="font-size:40px; color:#ff3333; margin-bottom:16px;">
+              <div style="font-size:40px; color:#4a9eff; margin-bottom:16px;">
                 <i class="fa-solid fa-mask"></i>
               </div>
               <h3 style="color:var(--text); font-weight:900; font-size:22px; margin:0 0 12px 0;">Illegal Schemes</h3>
               <p style="color:var(--muted); font-size:14px; margin:0 0 16px 0; line-height:1.6;">Submit and discuss scammer, racer, and drug dealer schemes.</p>
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="color:#ff3333; font-weight:700; font-size:14px;">${allThreads.filter(t => ['Scammer', 'Racer', 'Drug Dealer'].includes(t.schemeType)).length} Threads</span>
-                <i class="fa-solid fa-arrow-right" style="color:#ff3333;"></i>
+                <span style="color:#4a9eff; font-weight:700; font-size:14px;">${allThreads.filter(t => ['Scammer', 'Racer', 'Drug Dealer'].includes(t.schemeType)).length} Threads</span>
+                <i class="fa-solid fa-arrow-right" style="color:#4a9eff;"></i>
               </div>
             </div>
           </div>
@@ -1874,7 +1857,7 @@ async function renderGrid(forceRefresh = false){
 
         <!-- Recent Threads -->
         <div style="margin-top:40px;">
-          <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:20px; border-bottom:2px solid rgba(255, 0, 0, 0.3); padding-bottom:12px;">
+          <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:20px; border-bottom:2px solid rgba(30, 144, 255, 0.3); padding-bottom:12px;">
             <i class="fa-solid fa-clock"></i> Recent Threads
           </h3>
           <div id="threadList">
@@ -1884,13 +1867,13 @@ async function renderGrid(forceRefresh = false){
                 <div style="font-size:18px; font-weight:700;">No threads yet</div>
               </div>
             ` : allThreads.slice(0, 10).map((thread, idx) => `
-              <div class="thread-card" data-idx="${idx}" style="background:linear-gradient(180deg,rgba(30,30,30,.8),rgba(20,20,20,.9)); border:1px solid var(--glass-border); border-radius:12px; padding:20px; margin-bottom:16px; cursor:pointer; transition:all .2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 16px rgba(255, 0, 0, 0.3)';" onmouseout="this.style.borderColor='var(--glass-border)'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
+              <div class="thread-card" data-idx="${idx}" style="background:linear-gradient(180deg,rgba(30,30,30,.8),rgba(20,20,20,.9)); border:1px solid var(--glass-border); border-radius:12px; padding:20px; margin-bottom:16px; cursor:pointer; transition:all .2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 16px rgba(30, 144, 255, 0.3)';" onmouseout="this.style.borderColor='var(--glass-border)'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
                 <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:12px;">
                   <div>
                     <h3 style="color:var(--text); font-weight:900; font-size:20px; margin:0 0 8px 0;">${thread.title}</h3>
                     <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                      <span style="background:rgba(255,0,0,.2); color:var(--accent); padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-tag"></i> ${thread.schemeType}</span>
-                      <span style="background:rgba(13,17,23,.2); color:#ff3333; padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-folder"></i> ${thread.threadType}</span>
+                      <span style="background:rgba(30,144,255,.2); color:var(--accent); padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-tag"></i> ${thread.schemeType}</span>
+                      <span style="background:rgba(13,17,23,.2); color:#4a9eff; padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-folder"></i> ${thread.threadType}</span>
                     </div>
                   </div>
                   <div style="text-align:right;">
@@ -1929,15 +1912,15 @@ async function renderGrid(forceRefresh = false){
   if(activeTab === 'schemes'){
     contentArea.innerHTML = `
       <div style="max-width:1000px; margin:0 auto; padding:24px;">
-        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #ff0000 0%, #0d1117 50%, #ff0000 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
-          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #ff3333 0%, #dc143c 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(255, 0, 0, 0.5)); position:relative; z-index:1;">
+        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(30, 144, 255, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.5)); position:relative; z-index:1;">
             <i class="fa-solid fa-file-pen"></i> Illegal Faction Scheme Submission Guidelines
           </h2>
           
           <div style="color:var(--text); line-height:1.8; font-size:16px;">
-            <div style="background:linear-gradient(135deg, rgba(255, 0, 0, 0.15) 0%, rgba(13, 17, 23, 0.15) 100%); border:2px solid transparent; border-radius:12px; padding:24px; margin-bottom:28px; position:relative; overflow:hidden;">
-              <div style="position:absolute; inset:0; padding:2px; border-radius:12px; background:linear-gradient(135deg, rgba(255, 0, 0, 0.6) 0%, rgba(13, 17, 23, 0.6) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(13, 17, 23, 0.15) 100%); border:2px solid transparent; border-radius:12px; padding:24px; margin-bottom:28px; position:relative; overflow:hidden;">
+              <div style="position:absolute; inset:0; padding:2px; border-radius:12px; background:linear-gradient(135deg, rgba(30, 144, 255, 0.6) 0%, rgba(13, 17, 23, 0.6) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
               <p style="margin:0 0 16px 0; font-weight:700; font-size:18px; position:relative; z-index:1;">
                 Welcome to the thread submission channel for your illegal faction schemes! This is where all <strong style="color:var(--accent);">Scammer</strong>, <strong style="color:var(--accent);">Racer</strong>, and <strong style="color:var(--accent);">Drug Dealer</strong> threads must begin.
               </p>
@@ -2010,7 +1993,7 @@ async function renderGrid(forceRefresh = false){
               </ul>
             </div>
 
-            <div style="background:linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(13, 17, 23, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px; position:relative; z-index:1;">
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(13, 17, 23, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px; position:relative; z-index:1;">
               <p style="margin:0; font-weight:700; font-size:18px;">
                 <i class="fa-solid fa-lightbulb"></i> <strong>Reminder:</strong>
               </p>
@@ -2030,15 +2013,15 @@ async function renderGrid(forceRefresh = false){
   if(activeTab === 'spot'){
     contentArea.innerHTML = `
       <div style="max-width:1100px; margin:0 auto; padding:24px;">
-        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:40px; backdrop-filter:blur(16px); box-shadow: 0 10px 40px rgba(255,0,0,0.3), inset 0 0 50px rgba(0,0,0,0.5); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #ff0000 0%, #0d1117 50%, #ff0000 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:40px; backdrop-filter:blur(16px); box-shadow: 0 10px 40px rgba(30,144,255,0.3), inset 0 0 50px rgba(0,0,0,0.5); position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
           
           <!-- Header Section -->
           <div style="text-align:center; margin-bottom:36px; border-bottom:2px solid transparent; border-image:linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding-bottom:28px; position:relative; z-index:1;">
             <div style="font-size:14px; color:var(--accent); font-weight:800; letter-spacing:3px; margin-bottom:12px;">
               <i class="fa-solid fa-bullhorn"></i> OFFICIAL ANNOUNCEMENT
             </div>
-            <h2 style="color:var(--text); font-weight:900; font-size:42px; margin:0; background:linear-gradient(135deg, #ff3333 0%, #dc143c 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(255, 0, 0, 0.5));">
+            <h2 style="color:var(--text); font-weight:900; font-size:42px; margin:0; background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.5));">
               <i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> The Spot
             </h2>
             <div style="color:var(--muted); font-size:18px; margin-top:12px; font-weight:700;">
@@ -2071,7 +2054,7 @@ async function renderGrid(forceRefresh = false){
                 <i class="fa-solid fa-fire"></i> What Is The Spot?
               </h3>
               
-              <div style="background:rgba(255,0,0,0.08); border:2px solid rgba(255,0,0,0.3); border-radius:12px; padding:24px; margin-bottom:20px;">
+              <div style="background:rgba(30,144,255,0.08); border:2px solid rgba(30,144,255,0.3); border-radius:12px; padding:24px; margin-bottom:20px;">
                 <p style="margin:0 0 16px 0; font-weight:700; font-size:18px; color:var(--text);">
                   <strong style="color:var(--accent);">The Spot is a fully player-run system.</strong>
                 </p>
@@ -2085,29 +2068,29 @@ async function renderGrid(forceRefresh = false){
               </p>
 
               <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:20px;">
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(255,0,0,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-map" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Street knowledge</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(255,0,0,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-users" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Networking</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(255,0,0,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-user-secret" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Low-key movement</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(255,0,0,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-comments" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>IC interactions</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(255,0,0,0.2); grid-column:1/-1;">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2); grid-column:1/-1;">
                   <i class="fa-solid fa-brain" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Smart roleplay</strong>
                 </div>
               </div>
 
-              <div style="background:rgba(255,0,0,0.15); border-left:4px solid var(--accent); padding:16px; border-radius:8px;">
+              <div style="background:rgba(30,144,255,0.15); border-left:4px solid var(--accent); padding:16px; border-radius:8px;">
                 <p style="margin:0; font-weight:700; color:var(--text);">
                   Nothing is handed out. Everything must be earned.
                 </p>
@@ -2167,7 +2150,7 @@ async function renderGrid(forceRefresh = false){
                 </div>
               </div>
 
-              <div style="background:rgba(255,0,0,0.1); border:2px solid rgba(255,0,0,0.3); border-radius:10px; padding:18px;">
+              <div style="background:rgba(30,144,255,0.1); border:2px solid rgba(30,144,255,0.3); border-radius:10px; padding:18px;">
                 <p style="margin:0; color:var(--muted); line-height:1.7;">
                   There are no automatic alerts, no scripted locations, and no guaranteed catches.<br>
                   <strong style="color:var(--accent);">If civilians slip up IC, they get caught. If they move smart, they stay safe.</strong>
@@ -2195,9 +2178,9 @@ async function renderGrid(forceRefresh = false){
             </div>
 
             <!-- Closing Statement -->
-            <div style="background:linear-gradient(135deg, rgba(255, 0, 0, 0.15) 0%, rgba(13, 17, 23, 0.15) 100%); border:3px solid transparent; border-radius:16px; padding:32px; text-align:center; box-shadow:0 10px 30px rgba(255,0,0,0.3); position:relative; overflow:hidden;">
-              <div style="position:absolute; inset:0; padding:3px; border-radius:16px; background:linear-gradient(135deg, rgba(255, 0, 0, 0.7) 0%, rgba(13, 17, 23, 0.7) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
-              <h2 style="background:linear-gradient(135deg, #ff3333 0%, #dc143c 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)); font-weight:900; font-size:32px; margin:0 0 20px 0; position:relative; z-index:1;">
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(13, 17, 23, 0.15) 100%); border:3px solid transparent; border-radius:16px; padding:32px; text-align:center; box-shadow:0 10px 30px rgba(30,144,255,0.3); position:relative; overflow:hidden;">
+              <div style="position:absolute; inset:0; padding:3px; border-radius:16px; background:linear-gradient(135deg, rgba(30, 144, 255, 0.7) 0%, rgba(13, 17, 23, 0.7) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
+              <h2 style="background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.6)); font-weight:900; font-size:32px; margin:0 0 20px 0; position:relative; z-index:1;">
                 Welcome to The Spot
               </h2>
               <div style="font-size:19px; color:var(--text); font-weight:700; line-height:1.8; margin-bottom:24px;">
@@ -2221,16 +2204,16 @@ async function renderGrid(forceRefresh = false){
   if(activeTab === 'roe'){
     contentArea.innerHTML = `
       <div style="max-width:1100px; margin:0 auto; padding:24px;">
-        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #ff0000 0%, #0d1117 50%, #ff0000 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(30, 144, 255, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
           
-          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #ff3333 0%, #dc143c 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(255, 0, 0, 0.5)); position:relative; z-index:1;">
-            <i class="fa-solid fa-scale-balanced"></i> 7th Zone — Official Faction Roleplay Guidelines
+          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.5)); position:relative; z-index:1;">
+            <i class="fa-solid fa-scale-balanced"></i> TFB 4.0 — Official Faction Roleplay Guidelines
           </h2>
           
           <div style="color:var(--text); line-height:1.8; font-size:15px; position:relative; z-index:1;">
-            <div style="background:rgba(255, 0, 0, 0.1); border-left:4px solid var(--accent); padding:16px; border-radius:8px; margin-bottom:28px;">
-              <p style="margin:0; color:var(--text); font-weight:700;">Welcome to 7th Zone, a serious roleplay server focused on high-quality faction roleplay.</p>
+            <div style="background:rgba(30, 144, 255, 0.1); border-left:4px solid var(--accent); padding:16px; border-radius:8px; margin-bottom:28px;">
+              <p style="margin:0; color:var(--text); font-weight:700;">Welcome to TFB 4.0, a serious roleplay server focused on high-quality faction roleplay.</p>
               <p style="margin:8px 0 0 0; color:var(--muted);">By engaging in faction RP, you acknowledge and agree to all rules listed below. Breaking any rule may result in punishment or faction strikes.</p>
             </div>
 
@@ -2240,7 +2223,7 @@ async function renderGrid(forceRefresh = false){
                 <i class="fa-solid fa-crosshairs"></i> FACTION ATTACK RULES
               </h3>
               
-              <h4 style="color:#ff3333; font-weight:800; font-size:18px; margin:20px 0 12px 0;">General Attack Limits</h4>
+              <h4 style="color:#4a9eff; font-weight:800; font-size:18px; margin:20px 0 12px 0;">General Attack Limits</h4>
               <ul style="list-style:none; padding:0; margin:0 0 20px 0;">
                 <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
@@ -2268,7 +2251,7 @@ async function renderGrid(forceRefresh = false){
                 </li>
               </ul>
 
-              <h4 style="color:#ff3333; font-weight:800; font-size:18px; margin:20px 0 12px 0;">Kill Limits & Deathmatching</h4>
+              <h4 style="color:#4a9eff; font-weight:800; font-size:18px; margin:20px 0 12px 0;">Kill Limits & Deathmatching</h4>
               <ul style="list-style:none; padding:0; margin:0 0 20px 0;">
                 <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
@@ -2288,7 +2271,7 @@ async function renderGrid(forceRefresh = false){
                 </li>
               </ul>
 
-              <h4 style="color:#ff3333; font-weight:800; font-size:18px; margin:20px 0 12px 0;">Identification</h4>
+              <h4 style="color:#4a9eff; font-weight:800; font-size:18px; margin:20px 0 12px 0;">Identification</h4>
               <ul style="list-style:none; padding:0; margin:0;">
                 <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
@@ -2582,7 +2565,7 @@ async function renderGrid(forceRefresh = false){
               </ul>
             </div>
 
-            <div style="background:linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(13, 17, 23, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px;">
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(13, 17, 23, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px;">
               <p style="margin:0; font-weight:700; font-size:18px;">
                 <i class="fa-solid fa-triangle-exclamation"></i> <strong>Remember:</strong>
               </p>
@@ -2620,17 +2603,12 @@ async function renderGrid(forceRefresh = false){
 
   contentArea.innerHTML = `<div class="grid-wrap"><div class="grid" id="itemGrid" aria-live="polite"></div></div>`;
   itemGrid = document.getElementById('itemGrid');
-  
+  itemGrid.innerHTML = '';
   if(nodes.length === 0){
     itemGrid.innerHTML = '<div style="grid-column:1/-1; color:var(--muted); padding:18px; text-align:center;">No items in this category.</div>';
     return;
   }
-  
-  // Batch DOM updates with fragment for better performance
-  const fragment = document.createDocumentFragment();
-  nodes.forEach(it => fragment.appendChild(createCard(it)));
-  itemGrid.appendChild(fragment);
-  }); // Close requestAnimationFrame
+  nodes.forEach(it => itemGrid.appendChild(createCard(it)));
 }
 
 /* open popup from card */
@@ -2738,30 +2716,11 @@ musicToggle.addEventListener('click', ()=> {
   const current = localStorage.getItem('qc_music_on') === '1';
   setMusicOn(!current);
 });
-// Initialize audio source dynamically
-if(bgm) {
-  // Try multiple possible audio file names
-  const audioFiles = ['background_audio.mp3', '7th_audio.mp3', 'bgm.mp3', 'background.mp3'];
-  let audioLoaded = false;
-  
-  audioFiles.forEach(file => {
-    if(!audioLoaded) {
-      fetch(file, { method: 'HEAD' }).then(res => {
-        if(res.ok && !audioLoaded) {
-          bgm.src = file;
-          audioLoaded = true;
-          console.log('✅ Background music loaded:', file);
-        }
-      }).catch(() => {});
-    }
-  });
-}
-
 // Lazy audio init on first interaction
 let audioInitialized = false;
 function enableBGM(){ 
   function start(){ 
-    if(!audioInitialized && bgm && bgm.src){ 
+    if(!audioInitialized && bgm){ 
       bgm.play().catch(()=>{}); 
       audioInitialized = true;
     } 
@@ -3020,7 +2979,7 @@ async function showUserProfileModal(user) {
         <button class="btn" id="closeProfileModal"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <div style="background:linear-gradient(180deg,rgba(255,0,0,.1),rgba(13,17,23,.05)); border:2px solid var(--glass-border); border-radius:12px; padding:24px; margin-bottom:20px;">
+      <div style="background:linear-gradient(180deg,rgba(30,144,255,.1),rgba(13,17,23,.05)); border:2px solid var(--glass-border); border-radius:12px; padding:24px; margin-bottom:20px;">
         <h4 style="color:var(--accent); font-weight:800; font-size:18px; margin:0 0 16px 0;">
           <i class="fa-solid fa-chart-simple"></i> Statistics
         </h4>
@@ -3049,7 +3008,7 @@ async function showUserProfileModal(user) {
           <div style="padding:12px; background:rgba(255,255,255,.02); border-radius:8px; margin-bottom:8px; border-left:3px solid var(--accent);">
             <div style="font-weight:700; color:var(--text); margin-bottom:4px;">${thread.title}</div>
             <div style="font-size:12px; color:var(--muted);">
-              <span style="background:rgba(255,0,0,.2); color:var(--accent); padding:2px 8px; border-radius:4px; margin-right:6px;">${thread.schemeType}</span>
+              <span style="background:rgba(30,144,255,.2); color:var(--accent); padding:2px 8px; border-radius:4px; margin-right:6px;">${thread.schemeType}</span>
               ${new Date(thread.date).toLocaleDateString()}
             </div>
           </div>
@@ -3057,7 +3016,7 @@ async function showUserProfileModal(user) {
       </div>
 
       <div style="display:flex; gap:12px; justify-content:flex-end;">
-        <button class="btn" id="profileLogout" style="background:rgba(255,0,0,.2); border-color:var(--accent);">
+        <button class="btn" id="profileLogout" style="background:rgba(30,144,255,.2); border-color:var(--accent);">
           <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout
         </button>
         <button class="btn drop" id="closeProfileBtn">Close</button>
@@ -3091,7 +3050,7 @@ function init(){
   setTimeout(()=> setMusicOn(mp !== '0'), 60);
   // Allow audio context resume on first interaction
   document.addEventListener('click', ()=> { const ctx = initAudioCtx(); if(ctx && ctx.state === 'suspended') ctx.resume().catch(()=>{}); }, { passive: true });
-  console.log('7th Zone system ready');
+  console.log('TFB Illegal Factions system ready');
 }
 
 /* Forum modal functions */
@@ -3276,10 +3235,10 @@ async function showThreadModal(thread) {
         <div style="flex:1;">
           <h3 style="color:var(--accent); font-weight:900; font-size:28px; margin:0 0 12px 0;">${thread.title}</h3>
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px;">
-            <span style="background:rgba(255,0,0,.2); color:var(--accent); padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
+            <span style="background:rgba(30,144,255,.2); color:var(--accent); padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
               <i class="fa-solid fa-tag"></i> ${thread.schemeType}
             </span>
-            <span style="background:rgba(13,17,23,.2); color:#ff3333; padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
+            <span style="background:rgba(13,17,23,.2); color:#4a9eff; padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
               <i class="fa-solid fa-users"></i> ${thread.threadType}
             </span>
           </div>
@@ -3354,7 +3313,7 @@ async function showThreadModal(thread) {
             </div>
           </div>
         ` : `
-          <div style="background:rgba(255,0,0,.1); border:1px solid var(--accent); border-radius:8px; padding:16px; text-align:center; color:var(--muted); margin-bottom:20px;">
+          <div style="background:rgba(30,144,255,.1); border:1px solid var(--accent); border-radius:8px; padding:16px; text-align:center; color:var(--muted); margin-bottom:20px;">
             <i class="fa-solid fa-lock" style="margin-right:8px;"></i>
             Please login to join the discussion
           </div>
@@ -3379,7 +3338,7 @@ async function showThreadModal(thread) {
                 ${currentUser && currentUser.username === comment.author ? `
                   <div style="display:flex; gap:8px;">
                     <button class="btn" style="padding:6px 12px; font-size:12px;" onclick="editComment('${thread.id}', ${idx})"><i class="fa-solid fa-edit"></i> Edit</button>
-                    <button class="btn" style="padding:6px 12px; font-size:12px; background:rgba(255,0,0,.2);" onclick="deleteComment('${thread.id}', ${idx})"><i class="fa-solid fa-trash"></i> Delete</button>
+                    <button class="btn" style="padding:6px 12px; font-size:12px; background:rgba(30,144,255,.2);" onclick="deleteComment('${thread.id}', ${idx})"><i class="fa-solid fa-trash"></i> Delete</button>
                   </div>
                 ` : ''}
               </div>
